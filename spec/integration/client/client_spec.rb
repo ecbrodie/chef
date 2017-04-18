@@ -305,7 +305,7 @@ EOM
 local_mode true
 cookbook_path "#{path_to('cookbooks')}"
 EOM
-      result = shell_out!("#{chef_client} -c \"#{path_to('config/client.rb')}\" -o 'x::default' -z --profile-ruby", :cwd => chef_dir)
+      shell_out!("#{chef_client} -c \"#{path_to('config/client.rb')}\" -o 'x::default' -z --profile-ruby", :cwd => chef_dir)
       expect(File.exist?(path_to("config/local-mode-cache/cache/graph_profile.out"))).to be true
     end
 
@@ -314,7 +314,7 @@ EOM
 local_mode true
 cookbook_path "#{path_to('cookbooks')}"
 EOM
-      result = shell_out!("#{chef_client} -c \"#{path_to('config/client.rb')}\" -o 'x::default' -z", :cwd => chef_dir)
+      shell_out!("#{chef_client} -c \"#{path_to('config/client.rb')}\" -o 'x::default' -z", :cwd => chef_dir)
       expect(File.exist?(path_to("config/local-mode-cache/cache/graph_profile.out"))).to be false
     end
   end
@@ -463,6 +463,37 @@ end
       expect(result.stdout).to include("Failure/Error: expect(2 - 2).to eq(1)")
     end
   end
+
+  when_the_repository "has a cookbook that deploys a file" do
+    before do
+      file "cookbooks/x/recipes/default.rb", <<-RECIPE
+cookbook_file #{path_to('tempfile.txt').inspect} do
+  source "my_file"
+end
+      RECIPE
+
+      file "cookbooks/x/files/my_file", <<-FILE
+this is my file
+      FILE
+    end
+
+    [true, false].each do |lazy|
+      context "with no_lazy_load set to #{lazy}" do
+        it "should run the ohai plugin" do
+          file "config/client.rb", <<EOM
+no_lazy_load #{lazy}
+local_mode true
+cookbook_path "#{path_to('cookbooks')}"
+EOM
+          result = shell_out("#{chef_client} -l debug -c \"#{path_to('config/client.rb')}\" -o 'x::default' --no-fork", :cwd => chef_dir)
+          result.error!
+
+          expect(IO.read(path_to("tempfile.txt")).strip).to eq("this is my file")
+        end
+      end
+    end
+  end
+
 
   when_the_repository "has a cookbook with an ohai plugin" do
     before do
