@@ -6,4 +6,5 @@ gem 'cucumber'
 gem 'rake'
 gem "chefstyle"
 gem "rspec-command"
+gem "simplecov"
 gem 'foodcritic', git: 'https://github.com/foodcritic/foodcritic'
