@@ -99,7 +99,8 @@ matrix:
     #rvm: 2.4.1
   - env:
       TEST_GEM: poise
-    script: tasks/bin/run_external_test $TEST_GEM rake spec
+    gemfile: external-tests/poise.gemfile
+    script: cd $(bundle show poise) && BUNDLE_PATH=external-tests/poise.gemfile.lock bundle exec rake spec
     rvm: 2.4.1
   ### START TEST KITCHEN ONLY ###
   #
