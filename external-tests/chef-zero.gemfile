@@ -4,3 +4,4 @@ gemspec(name: 'chef', path: "../")
 
 gem 'rake'
 gem 'chef-zero', git: 'https://github.com/chef/chef-zero'
+gem "oc-chef-pedant", git: "https://github.com/chef/chef-server"

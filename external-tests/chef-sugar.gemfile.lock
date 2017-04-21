@@ -4,6 +4,15 @@ GIT
   specs:
     chef-sugar (3.4.0)
 
+GIT
+  remote: https://github.com/sethvargo/chefspec
+  revision: 736ed44603ba6697a5f2880ff152150953692854
+  specs:
+    chefspec (7.0.0)
+      chef (>= 12.14.89)
+      fauxhai (>= 4, < 6)
+      rspec (~> 3.0)
+
 PATH
   remote: ..
   specs:
@@ -57,6 +66,8 @@ GEM
       uuidtools (~> 2.1)
     diff-lcs (1.3)
     erubis (2.7.0)
+    fauxhai (4.1.0)
+      net-ssh
     ffi (1.9.18)
     ffi-yajl (2.3.0)
       libyajl2 (~> 1.2)
@@ -145,6 +156,7 @@ PLATFORMS
 DEPENDENCIES
   chef!
   chef-sugar!
+  chefspec!
   rake
 
 BUNDLED WITH

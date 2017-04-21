@@ -3,4 +3,5 @@ source 'https://rubygems.org'
 gemspec(name: 'chef', path: "../")
 
 gem 'rake'
+gem 'chefspec', git: 'https://github.com/sethvargo/chefspec'
 gem 'chef-sugar', git: 'https://github.com/sethvargo/chef-sugar'
