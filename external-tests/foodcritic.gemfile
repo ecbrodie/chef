@@ -5,4 +5,5 @@ gemspec(name: 'chef', path: "../")
 gem 'cucumber'
 gem 'rake'
 gem "chefstyle"
+gem "rspec-command"
 gem 'foodcritic', git: 'https://github.com/foodcritic/foodcritic'

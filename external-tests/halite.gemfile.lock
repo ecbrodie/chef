@@ -266,6 +266,10 @@ GEM
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
+    rspec-command (1.0.2)
+      mixlib-shellout (~> 2.0)
+      rspec (~> 3.2)
+      rspec-its (~> 1.2)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -363,6 +367,7 @@ DEPENDENCIES
   poise!
   poise-boiler!
   rake
+  rspec-command
 
 BUNDLED WITH
    1.14.6
