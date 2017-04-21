@@ -1,7 +1,3 @@
-# This buys us the ability to be included in other Gemfiles
-require_relative "tasks/gemfile_util"
-extend GemfileUtil
-
 source "https://rubygems.org"
 
 # Note we do not use the gemspec DSL which restricts to the
