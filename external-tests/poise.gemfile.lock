@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/poise/halite.git
+  remote: https://github.com/poise/halite
   revision: b43e21d1cf4f141c1f0a54534fb9a7728ca66682
   specs:
     halite (1.6.1.pre)
@@ -9,7 +9,14 @@ GIT
       thor
 
 GIT
-  remote: https://github.com/poise/poise-boiler.git
+  remote: https://github.com/poise/poise
+  revision: 47cd0e2296fed918b30b0889ed127c824cc32d30
+  specs:
+    poise (2.7.3.pre)
+      halite (~> 1.0)
+
+GIT
+  remote: https://github.com/poise/poise-boiler
   revision: 65e3e2d761d5f405517c8c33cdf4e43d44693107
   specs:
     poise-boiler (1.15.1.pre)
@@ -40,13 +47,6 @@ GIT
       winrm-fs (>= 0.4, < 2)
       yard (~> 0.8)
       yard-classmethods (~> 1.0)
-
-GIT
-  remote: https://github.com/poise/poise.git
-  revision: 47cd0e2296fed918b30b0889ed127c824cc32d30
-  specs:
-    poise (2.7.3.pre)
-      halite (~> 1.0)
 
 PATH
   remote: ..
