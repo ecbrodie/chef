@@ -60,16 +60,24 @@ matrix:
   # External tests
   #
   - env:
-      TEST_GEM: chef-sugar
-    script: tasks/bin/run_external_test $TEST_GEM rake
+    - TEST_GEM: chef-sugar
+    gemfile: external-tests/chef-sugar.gemfile
+    script: cd $(bundle show chef-sugar) && BUNDLE_PATH=external-tests/chef-sugar.gemfile.lock bundle exec rake
     rvm: 2.4.1
   - env:
       - TEST_GEM: chef-zero
-    script: tasks/bin/run_external_test $TEST_GEM rake spec cheffs
+    gemfile: external-tests/chef-zero.gemfile
+    script: cd $(bundle show chef-zero) && BUNDLE_PATH=external-tests/chef-zero.gemfile.lock bundle exec rake spec cheffs
     rvm: 2.4.1
   - env:
       TEST_GEM: cheffish
-    script: tasks/bin/run_external_test $TEST_GEM rake spec
+    gemfile: external-tests/cheffish.gemfile
+    script: cd $(bundle show cheffish) && BUNDLE_PATH=external-tests/cheffish.gemfile.lock bundle exec rake spec
+    rvm: 2.4.1
+  - env:
+      TEST_GEM: chefspec
+    gemfile: external-tests/chefspec.gemfile
+    script: cd $(bundle show chefspec) && BUNDLE_PATH=external-tests/chefspec.gemfile.lock bundle exec rake
     rvm: 2.4.1
     #- env:
     #  TEST_GEM: chefspec
@@ -84,19 +92,19 @@ matrix:
     #rvm: 2.4.1
   - env:
       TEST_GEM: foodcritic
-    script: tasks/bin/run_external_test $TEST_GEM rake test
+    gemfile: external-tests/foodcritic.gemfile
+    script: cd $(bundle show foodcritic) && BUNDLE_PATH=external-tests/foodcritic.gemfile.lock bundle exec rake test
     rvm: 2.4.1
   - env:
       TEST_GEM: halite
-    script: tasks/bin/run_external_test $TEST_GEM rake spec
+    gemfile: external-tests/halite.gemfile
+    script: cd $(bundle show halite) && BUNDLE_PATH=external-tests/halite.gemfile.lock bundle exec rake spec
     rvm: 2.4.1
-    # this has been broken for some time and running incorrectly, see:
-    #
-    # see https://github.com/chef/knife-windows/pull/421
-    #- env:
-    #  TEST_GEM: knife-windows
-    #script: tasks/bin/run_external_test $TEST_GEM rake unit_spec
-    #rvm: 2.4.1
+  - env:
+      TEST_GEM: knife-windows
+    gemfile: external-tests/knife-windows.gemfile
+    script: cd $(bundle show knife-windows) && BUNDLE_PATH=external-tests/knife-windows.gemfile.lock bundle exec rake unit_spec
+    rvm: 2.4.1
   - env:
       TEST_GEM: poise
     gemfile: external-tests/poise.gemfile
