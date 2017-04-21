@@ -83,6 +83,16 @@ namespace :dependencies do
     end
   end
 
+  desc "Update all external-tests lockfiles"
+  task :update_external_tests do
+    FileUtils.rm_f Dir.glob("external-tests/*.lock")
+    Dir.chdir("external-tests") do
+      Dir.glob("*.gemfile") do |file|
+        sh "bundle install --gemfile #{file}"
+      end
+    end
+  end
+
   bundle_update_locked_multiplatform_task :update_gemfile_lock, "."
   bundle_update_locked_multiplatform_task :update_omnibus_gemfile_lock, "omnibus"
   bundle_update_task :update_acceptance_gemfile_lock, "acceptance"

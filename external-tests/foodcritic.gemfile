@@ -2,4 +2,5 @@ source 'https://rubygems.org'
 
 gemspec(name: 'chef', path: "../")
 
+gem 'rake'
 gem 'foodcritic', git: 'https://github.com/foodcritic/foodcritic'

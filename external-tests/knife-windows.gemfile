@@ -2,4 +2,5 @@ source 'https://rubygems.org'
 
 gemspec(name: 'chef', path: "../")
 
+gem 'rake'
 gem 'knife-windows', git: 'https://github.com/chef/knife-windows'
