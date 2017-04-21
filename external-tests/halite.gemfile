@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+
+gemspec(name: 'chef', path: "../")
+
+gem 'halite', git: 'https://github.com/poise/halite'

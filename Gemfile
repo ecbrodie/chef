@@ -33,22 +33,6 @@ group(:omnibus_package, :pry) do
   gem "pry-stack_explorer"
 end
 
-# These are used for external tests
-group(:integration) do
-  gem "chef-sugar"
-  gem "chefspec"
-  gem "halite", git: "https://github.com/poise/halite.git"
-  gem "poise", git: "https://github.com/poise/poise.git"
-  gem "poise-boiler", git: "https://github.com/poise/poise-boiler.git"
-  gem "knife-windows"
-  gem "foodcritic"
-
-  # We pin this so nobody brings in a cucumber-core incompatible with cucumber latest
-  gem "cucumber", ">= 2.4.0"
-  # We pin oc-chef-pedant to prevent it from updating out of lockstep with chef-zero
-  gem "oc-chef-pedant", git: "https://github.com/chef/chef-server"
-end
-
 group(:docgen) do
   gem "yard"
 end

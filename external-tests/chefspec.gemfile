@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+
+gemspec(name: 'chef', path: "../")
+
+gem 'chefspec', git: 'https://github.com/sethvargo/chefspec'
