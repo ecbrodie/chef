@@ -3,5 +3,6 @@ source 'https://rubygems.org'
 gemspec(name: 'chef', path: "../")
 
 gem 'rake'
+gem 'poise', git: 'https://github.com/poise/poise'
 gem 'poise-boiler', git: 'https://github.com/poise/poise-boiler'
 gem 'halite', git: 'https://github.com/poise/halite'

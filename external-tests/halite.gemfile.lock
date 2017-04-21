@@ -9,6 +9,13 @@ GIT
       thor
 
 GIT
+  remote: https://github.com/poise/poise
+  revision: 47cd0e2296fed918b30b0889ed127c824cc32d30
+  specs:
+    poise (2.7.3.pre)
+      halite (~> 1.0)
+
+GIT
   remote: https://github.com/poise/poise-boiler
   revision: 65e3e2d761d5f405517c8c33cdf4e43d44693107
   specs:
@@ -353,6 +360,7 @@ PLATFORMS
 DEPENDENCIES
   chef!
   halite!
+  poise!
   poise-boiler!
   rake
 

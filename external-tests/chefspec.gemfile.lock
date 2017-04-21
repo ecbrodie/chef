@@ -143,6 +143,7 @@ GEM
     systemu (2.6.5)
     uuidtools (2.1.5)
     wmi-lite (1.0.0)
+    yard (0.9.8)
 
 PLATFORMS
   ruby
@@ -151,6 +152,7 @@ DEPENDENCIES
   chef!
   chefspec!
   rake
+  yard
 
 BUNDLED WITH
    1.14.6
